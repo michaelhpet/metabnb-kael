@@ -8,7 +8,7 @@ export default function Feed(props) {
   return (
     <Container>
       {props?.home ? (
-        <Header>Inspiration for your next adventure</Header>
+        <Header id='nfts'>Inspiration for your next adventure</Header>
       ) : null}
 
       <GridContainer spacing={3}>

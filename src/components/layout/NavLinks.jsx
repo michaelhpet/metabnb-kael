@@ -1,12 +1,15 @@
 import { Stack, styled } from '@mui/material';
 import { Link as Link_ } from 'react-router-dom';
 import navLinks from '../../utils/assets/navLinks';
+import useScroll from '../../utils/hooks/useScroll';
 
 export default function NavLinks() {
+  const scroll = useScroll();
+
   return (
     <Stack direction='row' alignItems='center' spacing={6}>
       {navLinks.map((link) => (
-        <Link key={link.label} to={link.path}>
+        <Link key={link.label} to={link.path} onClick={() => scroll(link.path)}>
           {link.label}
         </Link>
       ))}

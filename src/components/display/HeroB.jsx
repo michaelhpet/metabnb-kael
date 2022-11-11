@@ -7,7 +7,7 @@ export default function HeroB() {
   const { hero2Image } = useImages();
 
   return (
-    <Wrapper>
+    <Wrapper id='community'>
       <Container>
         <Grid container spacing={12.375}>
           <GridItem xs={12} md={5.27}>
