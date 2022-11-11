@@ -19,7 +19,6 @@ export default function Belt() {
 
 const Wrapper = styled('section')(({ theme }) => ({
   padding: '10px 0',
-  marginBottom: 19,
   background: theme.palette.primary.main,
 
   '& .MuiContainer-root': {

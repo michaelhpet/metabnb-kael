@@ -1,9 +1,12 @@
+import Feed from '../components/display/Feed';
+import FilterBar from '../components/display/FilterBar';
 import Layout from '../components/layout/Layout';
 
 export default function PlaceToStay() {
   return (
     <Layout>
-      <h1>Place to stay</h1>
+      <FilterBar />
+      <Feed />
     </Layout>
   );
 }

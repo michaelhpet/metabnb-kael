@@ -7,7 +7,7 @@ import PlaceToStay from './routes/PlaceToStay';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
-  { path: 'nft', element: <PlaceToStay /> },
+  { path: 'place-to-stay', element: <PlaceToStay /> },
 ]);
 
 const theme = createTheme({

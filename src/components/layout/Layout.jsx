@@ -1,4 +1,5 @@
 import { styled } from '@mui/material';
+import Footer from './Footer';
 import NavBar from './NavBar';
 
 export default function Layout({ children }) {
@@ -6,6 +7,7 @@ export default function Layout({ children }) {
     <Main>
       <NavBar />
       {children}
+      <Footer />
     </Main>
   );
 }

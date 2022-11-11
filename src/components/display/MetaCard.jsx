@@ -5,19 +5,22 @@ import Image from './Image';
 export default function MetaCard(props) {
   return (
     <Wrapper>
-      <Image src={props.src} alt={props.title} />
+      <ImageWrapper>
+        <Image src={props.src} alt={props.title} />
+      </ImageWrapper>
+
       <Content>
-        <Stack direction='row' alignItems='center'>
+        <TextStack>
           <NormalText>{props.title}</NormalText>
           <BoldText>{props.price}</BoldText>
-        </Stack>
+        </TextStack>
 
-        <Stack direction='row' alignItems='center'>
+        <TextStack>
           <NormalText>{props.distance}</NormalText>
           <NormalText>{props.duration}</NormalText>
-        </Stack>
+        </TextStack>
 
-        <Rating value={props.rating} icon={<StarIcon />} />
+        <Rating value={props.rating} icon={<StarIcon />} readOnly />
       </Content>
     </Wrapper>
   );
@@ -27,12 +30,31 @@ const Wrapper = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   gap: 16,
+  border: '1px solid rgba(215, 215, 215, 1)',
+  borderRadius: 15,
+});
+
+const ImageWrapper = styled('div')({
+  padding: '16px 16px 0 16px',
 });
 
 const Content = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   gap: 10,
+  padding: '0 11px 16px 16px',
+
+  '& .MuiSvgIcon-root': {
+    width: 12,
+    height: 12,
+    marginRight: 8,
+  },
+});
+
+const TextStack = styled('article')({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
 });
 
 const NormalText = styled(Typography)({

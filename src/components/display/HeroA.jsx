@@ -15,7 +15,7 @@ export default function HeroA() {
       <Grid container spacing={12.375}>
         <GridItem xs={12} md={6.73}>
           <TextContent>
-            <Header>
+            <Header component='h1'>
               Rent a <span>Place</span> away from <span>Home</span> in the{' '}
               <span>Metaverse</span>
             </Header>

@@ -2,14 +2,20 @@ import { Container, Grid, styled, Typography } from '@mui/material';
 import useMetaImages from '../../utils/hooks/useMetaImages';
 import MetaCard from './MetaCard';
 
-export default function Feed() {
+export default function Feed(props) {
   const images = useMetaImages();
 
   return (
-    <Wrapper>
-      <Header>Inspiration for your next adventure</Header>
-      <Grid container spacing={3}>
-        {images.map((image) => (
+    <Container>
+      {props?.home ? (
+        <Header>Inspiration for your next adventure</Header>
+      ) : null}
+
+      <GridContainer spacing={3}>
+        {(props?.home
+          ? [...images.slice(4, 8), ...images.slice(0, 4)]
+          : images
+        ).map((image) => (
           <Grid item key={image} xs={12} sm={6} md={3}>
             <MetaCard
               src={image}
@@ -21,13 +27,13 @@ export default function Feed() {
             />
           </Grid>
         ))}
-      </Grid>
-    </Wrapper>
+      </GridContainer>
+    </Container>
   );
 }
 
-const Wrapper = styled(Container)({
-  paddingTop: 39,
+const GridContainer = styled((props) => <Grid {...props} container />)({
+  padding: '0 0 43px',
 });
 
 const Header = styled(Typography)(({ theme }) => ({
@@ -35,5 +41,6 @@ const Header = styled(Typography)(({ theme }) => ({
   fontWeight: 700,
   lineHeight: '59.95px',
   textAlign: 'center',
+  padding: '58px 0 43px',
   color: 'rgba(0, 0, 0, 1)',
 }));
