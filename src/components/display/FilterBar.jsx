@@ -1,13 +1,11 @@
 import {
   Container,
-  Stack,
   styled,
   Tab as Tab_,
   Tabs,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import { Link as Link_ } from 'react-router-dom';
 import filterLinks from '../../utils/assets/filterLinks';
 import Button_ from '../input/Button';
 import SettingsIcon from '../icons/SettingsIcon';
@@ -51,14 +49,6 @@ const Wrapper = styled('section')(({ theme }) => ({
     marginLeft: -40,
   },
 }));
-
-const Link = styled(Link_)({
-  fontSize: 20,
-  fontWeight: 400,
-  lineHeight: '24.98px',
-  textDecoration: 'none',
-  color: 'rgba(67, 67, 67, 1)',
-});
 
 const Tab = styled((props) => <Tab_ {...props} disableRipple />)(
   ({ theme }) => ({

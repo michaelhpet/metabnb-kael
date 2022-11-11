@@ -14,10 +14,14 @@ export default function NavLinks() {
   );
 }
 
-const Link = styled(Link_)({
+const Link = styled(Link_)(({ theme }) => ({
   fontSize: 20,
   fontWeight: 400,
   lineHeight: '24.98px',
   textDecoration: 'none',
   color: 'rgba(67, 67, 67, 1)',
-});
+
+  '&: hover': {
+    color: theme.palette.primary.main,
+  },
+}));

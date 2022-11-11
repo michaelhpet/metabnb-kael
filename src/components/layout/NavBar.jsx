@@ -3,10 +3,12 @@ import { Container } from '@mui/system';
 import { useEffect, useMemo, useState } from 'react';
 import BrandImage from '../brand/BrandImage';
 import Button from '../input/Button';
+import WalletModal from '../modals/WalletModal';
 import NavLinks from './NavLinks';
 
 export default function NavBar() {
   const [scroll, setScroll] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (window) {
@@ -23,7 +25,10 @@ export default function NavBar() {
           <Toolbar>
             <BrandImage />
             <NavLinks />
-            <Button variant='contained'>Connect wallet</Button>
+            <Button variant='contained' onClick={() => setModalOpen(true)}>
+              Connect wallet
+            </Button>
+            <WalletModal open={modalOpen} onClose={() => setModalOpen(false)} />
           </Toolbar>
         </Container>
       </NavBar_>
