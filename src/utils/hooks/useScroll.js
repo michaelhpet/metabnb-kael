@@ -14,6 +14,8 @@ export default function useScroll() {
           behavior: 'smooth',
         });
       }
+    } else {
+      window.scrollTo(0, 0);
     }
   };
 }
