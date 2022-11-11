@@ -1,4 +1,9 @@
-import { Grid, Stack, styled, Typography } from '@mui/material';
+import {
+  Grid,
+  Container as Container_,
+  styled,
+  Typography,
+} from '@mui/material';
 import useImages from '../../utils/hooks/useImages';
 import Button from '../input/Button';
 
@@ -6,7 +11,7 @@ export default function HeroA() {
   const { heroImage } = useImages();
 
   return (
-    <Wrapper>
+    <Container>
       <Grid container spacing={12.375}>
         <GridItem xs={12} md={6.73}>
           <TextContent>
@@ -30,16 +35,17 @@ export default function HeroA() {
 
         <GridItem xs={12} md={5.27}>
           <Image>
-            <img src={heroImage} />
+            <img src={heroImage} alt='Metabnb' />
           </Image>
         </GridItem>
       </Grid>
-    </Wrapper>
+    </Container>
   );
 }
 
-const Wrapper = styled('section')({
-  padding: '67px 0',
+const Container = styled(Container_)({
+  paddingTop: 67,
+  paddingBottom: 67,
 });
 
 const GridItem = styled((props) => <Grid {...props} item />)({
@@ -78,6 +84,7 @@ const SearchBar = styled('form')(({ theme }) => ({
   width: '100%',
   display: 'flex',
   alignItems: 'center',
+  paddingBottom: 24,
 
   '& input': {
     flexGrow: 1,
@@ -106,9 +113,10 @@ const Image = styled('div')({
   position: 'relative',
   width: '100%',
   height: '100%',
+  paddingRight: 19,
 
   '& img': {
-    width: '94%',
-    height: '100%',
+    width: '100%',
+    // height: '100%',
   },
 });

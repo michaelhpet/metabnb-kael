@@ -1,4 +1,4 @@
-import images from '../assets/images';
+import images from '../assets/commonImages';
 
 export default function useImages() {
   return images;
