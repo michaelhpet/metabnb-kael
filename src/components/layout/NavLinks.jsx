@@ -1,0 +1,23 @@
+import { Stack, styled } from '@mui/material';
+import { Link as Link_ } from 'react-router-dom';
+import navLinks from '../../utils/assets/navLinks';
+
+export default function NavLinks() {
+  return (
+    <Stack direction='row' alignItems='center' spacing={6}>
+      {navLinks.map((link) => (
+        <Link key={link.label} to={link.path}>
+          {link.label}
+        </Link>
+      ))}
+    </Stack>
+  );
+}
+
+const Link = styled(Link_)({
+  fontSize: 20,
+  fontWeight: 400,
+  lineHeight: '24.98px',
+  textDecoration: 'none',
+  color: 'rgba(67, 67, 67, 1)',
+});
