@@ -47,6 +47,9 @@ const Wrapper = styled('section')(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     gap: 8,
     marginLeft: -40,
+    paddingTop: 16,
+    paddingRight: 0,
+    paddingBottom: 16,
   },
 }));
 

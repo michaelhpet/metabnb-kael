@@ -1,13 +1,24 @@
-import { Rating, Stack, styled, Typography } from '@mui/material';
+import {
+  Checkbox,
+  IconButton,
+  Rating,
+  styled,
+  Typography,
+} from '@mui/material';
 import StarIcon from '../icons/StarIcon';
-import Image from './Image';
+import HeartIcon from '../icons/HeartIcon';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export default function MetaCard(props) {
   return (
     <Wrapper>
-      <ImageWrapper>
-        <Image src={props.src} alt={props.title} />
-      </ImageWrapper>
+      <Media>
+        <Background bg={props.src}>
+          <Heart>
+            <Checkbox icon={<HeartIcon />} checkedIcon={<FavoriteIcon />} />
+          </Heart>
+        </Background>
+      </Media>
 
       <Content>
         <TextStack>
@@ -20,7 +31,7 @@ export default function MetaCard(props) {
           <NormalText>{props.duration}</NormalText>
         </TextStack>
 
-        <Rating value={props.rating} icon={<StarIcon />} readOnly />
+        <Rating value={props.rating} icon={<StarIcon />} />
       </Content>
     </Wrapper>
   );
@@ -34,8 +45,28 @@ const Wrapper = styled('div')({
   borderRadius: 15,
 });
 
-const ImageWrapper = styled('div')({
+const Media = styled('div')({
+  width: '100%',
+  height: 265,
   padding: '16px 16px 0 16px',
+});
+
+const Background = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'bg',
+})(({ bg }) => ({
+  position: 'relative',
+  width: '100%',
+  height: '100%',
+  background: `url(${bg}) no-repeat`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  borderRadius: 15,
+}));
+
+const Heart = styled('div')({
+  position: 'absolute',
+  top: 8,
+  right: 8,
 });
 
 const Content = styled('div')({

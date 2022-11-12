@@ -27,4 +27,8 @@ const Link = styled(Link_)(({ theme }) => ({
   '&: hover': {
     color: theme.palette.primary.main,
   },
+
+  [theme.breakpoints.down(1000)]: {
+    display: 'none',
+  },
 }));

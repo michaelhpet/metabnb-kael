@@ -43,4 +43,8 @@ const Header = styled(Typography)(({ theme }) => ({
   textAlign: 'center',
   padding: '58px 0 43px',
   color: 'rgba(0, 0, 0, 1)',
+
+  [theme.breakpoints.down('sm')]: {
+    padding: 16,
+  },
 }));

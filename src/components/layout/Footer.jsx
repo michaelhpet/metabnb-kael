@@ -6,6 +6,8 @@ import {
   Stack,
   styled,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import useImages from '../../utils/hooks/useImages';
 import Image from '../display/Image';
@@ -67,12 +69,18 @@ export default function Footer() {
 }
 
 function BrandStack() {
+  const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { brandImageBw } = useImages();
 
   return (
     <Stack spacing={6.875}>
       <Box sx={{ marginBottom: 5.125 }}>
-        <Image src={brandImageBw} alt='Meta BnB brand logo black and white' />
+        <Image
+          src={brandImageBw}
+          alt='Meta BnB brand logo black and white'
+          {...(smDown && { width: '70%' })}
+        />
       </Box>
 
       <Stack direction='row' alignItems='center' spacing={4}>

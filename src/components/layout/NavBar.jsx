@@ -1,12 +1,22 @@
-import { AppBar, styled } from '@mui/material';
+import {
+  AppBar,
+  IconButton,
+  Stack,
+  styled,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Container } from '@mui/system';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import BrandImage from '../brand/BrandImage';
-import Button from '../input/Button';
+import Button_ from '../input/Button';
 import WalletModal from '../modals/WalletModal';
 import NavLinks from './NavLinks';
 
 export default function NavBar() {
+  const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const [scroll, setScroll] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -19,15 +29,21 @@ export default function NavBar() {
   }, [scroll]);
   return (
     <>
-      <Padding />
+      {!smDown && <Padding />}
       <NavBar_ scroll={scroll}>
         <Container>
           <Toolbar>
             <BrandImage />
             <NavLinks />
-            <Button variant='contained' onClick={() => setModalOpen(true)}>
-              Connect wallet
-            </Button>
+
+            <Stack direction='row' alignItems='center' spacing={2}>
+              <Button variant='contained' onClick={() => setModalOpen(true)}>
+                Connect wallet
+              </Button>
+              <IconButton>
+                <MenuIcon />
+              </IconButton>
+            </Stack>
             <WalletModal open={modalOpen} onClose={() => setModalOpen(false)} />
           </Toolbar>
         </Container>
@@ -58,3 +74,12 @@ const Toolbar = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-between',
 });
+
+const Button = styled(Button_)(({ theme }) => ({
+  [theme.breakpoints.down('sm')]: {
+    display: 'block',
+    flexGrow: 1,
+    lineHeight: '16px',
+    padding: '10px 8px',
+  },
+}));
