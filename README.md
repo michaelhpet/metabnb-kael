@@ -1,13 +1,17 @@
 # MetaBnB | HNG9 Project 3
 
-A pixel perfect implementation of the design. Mobile responsive at developer's discretion.
+A pixel perfect implementation of the design below, mobile responsiveness at developer's discretion.
 
-Technologies used:
+## Design
+
+[Figma file](https://www.figma.com/file/atc36d5Cj9xJNupZALp9Tg/Metabnb-for-frontend?node-id=1%3A1658)
+
+## Technologies used
 
 - Reactjs
 - Material UI
 
-Project structure
+## Project structure
 
 - `index.html` - Root document
 - /public -> static assets like favicon
@@ -27,3 +31,8 @@ Project structure
   - ./utils -> [various utilities](https://github.com/michael-peter/metabnb-kael/tree/main/src/utils) -> utilities
     - ./assets -> [asset compositions](https://github.com/michael-peter/metabnb-kael/tree/main/src/utils/assets) like image getters, link getters
     - ./hooks -> [custom hooks](https://github.com/michael-peter/metabnb-kael/tree/main/src/utils/hooks), e.g, `useScroll`, `useImages`
+
+## Deployment
+
+Deployed with [Vercel](https://vercel.com/)
+[https://metabnb-kael.vercel.app/](https://metabnb-kael.vercel.app/)
