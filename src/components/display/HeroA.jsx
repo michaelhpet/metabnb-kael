@@ -93,6 +93,11 @@ const Header = styled(Typography)(({ theme }) => ({
     fontWeight: 700,
     color: theme.palette.primary.main,
   },
+
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 54,
+    textAlign: 'center',
+  },
 }));
 
 const SubHeader = styled(Typography)(({ theme }) => ({
@@ -103,6 +108,11 @@ const SubHeader = styled(Typography)(({ theme }) => ({
 
   [theme.breakpoints.between(900, 1000)]: {
     fontSize: 20,
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 24,
+    textAlign: 'center',
   },
 }));
 
@@ -152,7 +162,6 @@ const SearchBar = styled('form')(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
     gap: 16,
-    alignItems: 'flex-start',
 
     '& input': {
       width: '100%',
@@ -160,6 +169,7 @@ const SearchBar = styled('form')(({ theme }) => ({
     },
 
     '& .MuiButton-root': {
+      width: '100%',
       borderRadius: 8,
     },
   },

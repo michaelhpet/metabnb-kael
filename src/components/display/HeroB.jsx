@@ -64,18 +64,30 @@ const Header = styled(Typography)(({ theme }) => ({
     fontWeight: 700,
     color: theme.palette.primary.main,
   },
+
+  [theme.breakpoints.down('sm')]: {
+    textAlign: 'center',
+  },
 }));
 
-const SubHeader = styled(Typography)({
+const SubHeader = styled(Typography)(({ theme }) => ({
   fontSize: 18,
   fontWeight: 400,
   lineHeight: '35px',
   marginBottom: 22.55,
   color: '#FFFFFF',
-});
+
+  [theme.breakpoints.down('sm')]: {
+    textAlign: 'center',
+  },
+}));
 
 const Button = styled(Button_)(({ theme }) => ({
   padding: '14px 33px',
   background: 'linear-gradient(124.4deg, #FFFFFF 10.8%, #FFFFFF)',
   color: theme.palette.primary.main,
+
+  [theme.breakpoints.down('sm')]: {
+    width: '100%',
+  },
 }));
