@@ -134,7 +134,7 @@ const SearchBar = styled('form')(({ theme }) => ({
     borderRadius: '0px 8px 8px 0px',
   },
 
-  [theme.breakpoints.down(1000)]: {
+  [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
     gap: 16,
     alignItems: 'flex-start',
