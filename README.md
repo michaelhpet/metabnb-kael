@@ -13,7 +13,7 @@ A pixel perfect implementation of the design below, mobile responsiveness at dev
 
 ## Project structure
 
-- `index.html` - Root document
+- /`index.html` - Root document
 - /public - static assets like favicon
 - /src - source codes
   - `main.jsx` - [app entry point](https://github.com/michael-peter/metabnb-kael/blob/main/src/main.jsx)
