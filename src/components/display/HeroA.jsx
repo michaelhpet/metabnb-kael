@@ -85,7 +85,7 @@ const Header = styled(Typography)(({ theme }) => ({
   letterSpacing: '-0.02em',
   color: 'rgba(67, 67, 67, 1)',
 
-  [theme.breakpoints.down(1000)]: {
+  [theme.breakpoints.between(900, 1000)]: {
     fontSize: 48,
   },
 
@@ -101,7 +101,7 @@ const SubHeader = styled(Typography)(({ theme }) => ({
   lineHeight: '35px',
   color: 'rgba(67, 67, 67, 1)',
 
-  [theme.breakpoints.down(1000)]: {
+  [theme.breakpoints.between(900, 1000)]: {
     fontSize: 20,
   },
 }));
@@ -154,6 +154,10 @@ const Image = styled('div')(({ theme }) => ({
   position: 'relative',
   width: '100%',
   paddingRight: 19,
+
+  [theme.breakpoints.down('md')]: {
+    paddingRight: 0,
+  },
 
   '& img': {
     width: '100%',

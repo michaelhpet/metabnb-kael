@@ -7,7 +7,7 @@ export default function Belt() {
   const { mbtokenImage, metamaskImage, openseaImage } = useImages();
 
   return (
-    <Wrapper>
+    <Wrapper id='community'>
       <Container>
         <Image src={mbtokenImage} alt='MB Token image' />
         <Image src={metamaskImage} alt='Meta Mask image' />
@@ -26,7 +26,8 @@ const Wrapper = styled('section')(({ theme }) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
 
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down(800)]: {
+      padding: '32px 0',
       flexDirection: 'column',
       gap: 32,
     },
