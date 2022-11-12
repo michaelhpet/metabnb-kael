@@ -73,14 +73,20 @@ function BrandStack() {
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { brandImageBw } = useImages();
 
+  function scrollToTop() {
+    if (window) window.scrollTo(0, 0);
+  }
+
   return (
     <Stack spacing={6.875}>
       <Box sx={{ marginBottom: 5.125 }}>
-        <Image
-          src={brandImageBw}
-          alt='Meta BnB brand logo black and white'
-          {...(smDown && { width: '70%' })}
-        />
+        <Link to='/' onClick={scrollToTop}>
+          <Image
+            src={brandImageBw}
+            alt='Meta BnB brand logo black and white'
+            {...(smDown && { width: '70%' })}
+          />
+        </Link>
       </Box>
 
       <Stack direction='row' alignItems='center' spacing={4}>
