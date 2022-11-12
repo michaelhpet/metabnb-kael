@@ -134,6 +134,21 @@ const SearchBar = styled('form')(({ theme }) => ({
     borderRadius: '0px 8px 8px 0px',
   },
 
+  [theme.breakpoints.between(900, 1000)]: {
+    flexDirection: 'column',
+    gap: 16,
+    alignItems: 'flex-start',
+
+    '& input': {
+      width: '100%',
+      borderRadius: 8,
+    },
+
+    '& .MuiButton-root': {
+      borderRadius: 8,
+    },
+  },
+
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
     gap: 16,
