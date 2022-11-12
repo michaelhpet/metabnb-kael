@@ -24,6 +24,7 @@ const Wrapper = styled('section')(({ theme }) => ({
   '& .MuiContainer-root': {
     display: 'flex',
     alignItems: 'center',
+    padding: '0 62.77px',
     justifyContent: 'space-between',
 
     [theme.breakpoints.down(800)]: {
