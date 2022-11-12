@@ -13,6 +13,7 @@ import BrandImage from '../brand/BrandImage';
 import Button_ from '../input/Button';
 import WalletModal from '../modals/WalletModal';
 import NavLinks from './NavLinks';
+import MenuModal from '../modals/MenuModal';
 
 export default function NavBar() {
   const theme = useTheme();
@@ -20,6 +21,16 @@ export default function NavBar() {
   const tablet = useMediaQuery(theme.breakpoints.down(1000));
   const [scroll, setScroll] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const [menuAnchor, setMenuAnchor] = useState(null);
+  const menuOpen = Boolean(menuAnchor);
+
+  const handleMenuClick = (event) => {
+    setMenuAnchor(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setMenuAnchor(null);
+  };
 
   useEffect(() => {
     if (window) {
@@ -39,7 +50,7 @@ export default function NavBar() {
 
             <Stack direction='row' alignItems='center' spacing={2}>
               {tablet ? (
-                <IconButton>
+                <IconButton onClick={handleMenuClick}>
                   <MenuIcon />
                 </IconButton>
               ) : null}
@@ -48,6 +59,11 @@ export default function NavBar() {
                 Connect wallet
               </Button>
             </Stack>
+            <MenuModal
+              open={menuOpen}
+              onClose={handleMenuClose}
+              anchorEl={menuAnchor}
+            />
             <WalletModal open={modalOpen} onClose={() => setModalOpen(false)} />
           </Toolbar>
         </Container>

@@ -25,5 +25,10 @@ const Wrapper = styled('section')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      gap: 32,
+    },
   },
 }));
