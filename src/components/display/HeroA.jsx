@@ -12,8 +12,8 @@ export default function HeroA() {
 
   return (
     <Container>
-      <Grid container spacing={12.375}>
-        <GridItem xs={12} md={6.73}>
+      <Grid container spacing={{ xs: 5, md: 12.375 }}>
+        <GridItem sm={12} md={6.73}>
           <TextContent>
             <Header component='h1'>
               Rent a <span>Place</span> away from <span>Home</span> in the{' '}
@@ -33,7 +33,7 @@ export default function HeroA() {
           </TextContent>
         </GridItem>
 
-        <GridItem xs={12} md={5.27}>
+        <GridItem sm={12} md={5.27}>
           <Image>
             <img src={heroImage} alt='Metabnb' />
           </Image>
@@ -43,22 +43,40 @@ export default function HeroA() {
   );
 }
 
-const Container = styled(Container_)({
+const Container = styled(Container_)(({ theme }) => ({
   paddingTop: 67,
   paddingBottom: 67,
-});
 
-const GridItem = styled((props) => <Grid {...props} item />)({
+  [theme.breakpoints.down('sm')]: {
+    paddingTop: 32,
+  },
+}));
+
+const GridItem = styled((props) => <Grid {...props} item />)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-});
 
-const TextContent = styled('article')({
+  [theme.breakpoints.down(1000)]: {
+    maxWidth: '50%',
+    margin: '0 auto',
+
+    [theme.breakpoints.down(900)]: {
+      maxWidth: '100%',
+      margin: '0 auto',
+    },
+  },
+}));
+
+const TextContent = styled('article')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: 48,
-});
+
+  [theme.breakpoints.down(1000)]: {
+    gap: 24,
+  },
+}));
 
 const Header = styled(Typography)(({ theme }) => ({
   fontSize: 54,
@@ -66,6 +84,10 @@ const Header = styled(Typography)(({ theme }) => ({
   lineHeight: '78.4px',
   letterSpacing: '-0.02em',
   color: 'rgba(67, 67, 67, 1)',
+
+  [theme.breakpoints.down(1000)]: {
+    fontSize: 48,
+  },
 
   '& span': {
     fontWeight: 700,
@@ -78,6 +100,10 @@ const SubHeader = styled(Typography)(({ theme }) => ({
   fontWeight: 400,
   lineHeight: '35px',
   color: 'rgba(67, 67, 67, 1)',
+
+  [theme.breakpoints.down(1000)]: {
+    fontSize: 20,
+  },
 }));
 
 const SearchBar = styled('form')(({ theme }) => ({
@@ -107,16 +133,35 @@ const SearchBar = styled('form')(({ theme }) => ({
     padding: '17px 87px',
     borderRadius: '0px 8px 8px 0px',
   },
+
+  [theme.breakpoints.down(1000)]: {
+    flexDirection: 'column',
+    gap: 16,
+    alignItems: 'flex-start',
+
+    '& input': {
+      width: '100%',
+      borderRadius: 8,
+    },
+
+    '& .MuiButton-root': {
+      borderRadius: 8,
+    },
+  },
 }));
 
-const Image = styled('div')({
+const Image = styled('div')(({ theme }) => ({
   position: 'relative',
   width: '100%',
-  height: '100%',
   paddingRight: 19,
 
   '& img': {
     width: '100%',
     // height: '100%',
+
+    [theme.breakpoints.between(900, 1000)]: {
+      width: '130%',
+      marginLeft: -60,
+    },
   },
-});
+}));

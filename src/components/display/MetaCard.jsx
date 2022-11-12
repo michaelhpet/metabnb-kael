@@ -1,10 +1,4 @@
-import {
-  Checkbox,
-  IconButton,
-  Rating,
-  styled,
-  Typography,
-} from '@mui/material';
+import { Checkbox, Rating, styled, Typography } from '@mui/material';
 import StarIcon from '../icons/StarIcon';
 import HeartIcon from '../icons/HeartIcon';
 import FavoriteIcon from '@mui/icons-material/Favorite';

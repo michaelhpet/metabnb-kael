@@ -17,6 +17,7 @@ import NavLinks from './NavLinks';
 export default function NavBar() {
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+  const tablet = useMediaQuery(theme.breakpoints.down(1000));
   const [scroll, setScroll] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -37,12 +38,15 @@ export default function NavBar() {
             <NavLinks />
 
             <Stack direction='row' alignItems='center' spacing={2}>
+              {tablet ? (
+                <IconButton>
+                  <MenuIcon />
+                </IconButton>
+              ) : null}
+
               <Button variant='contained' onClick={() => setModalOpen(true)}>
                 Connect wallet
               </Button>
-              <IconButton>
-                <MenuIcon />
-              </IconButton>
             </Stack>
             <WalletModal open={modalOpen} onClose={() => setModalOpen(false)} />
           </Toolbar>
@@ -58,10 +62,12 @@ const Padding = styled('div')({
 });
 
 const propKeys = ['scroll'];
-const NavBar_ = styled(AppBar, {
+const NavBar_ = styled('nav', {
   shouldForwardProp: (prop) => !propKeys.includes(prop),
 })(({ theme, scroll }) => ({
   position: 'sticky',
+  top: 0,
+  zIndex: 999,
   padding: '16px 0',
   boxShadow: `0 3px 3px ${
     scroll > 100 ? 'rgba(67, 67, 67, 0.25)' : 'transparent'
