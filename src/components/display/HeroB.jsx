@@ -21,7 +21,7 @@ export default function HeroB() {
               </SubHeader>
 
               <div>
-                <Button variant='contained'>Search</Button>
+                <Button variant='contained'>Learn more</Button>
               </div>
             </TextContent>
           </GridItem>
